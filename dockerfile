@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Command to run the application
-CMD ["python", "nlp_chatbot.py"]
+CMD ["gunicorn", "nlp_chatbot:app", "--bind", "0.0.0.0:10000"]
