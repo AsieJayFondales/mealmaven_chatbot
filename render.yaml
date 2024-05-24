@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: nlp-chatbot
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    autoDeploy: true
+    branch: main
+    healthCheckPath: /
+    region: oregon
+    dockerCommand: python nlp_chatbot.py
